@@ -207,7 +207,6 @@ export default class Tabs extends View {
     };
     return h_flex().size_full().min_w(0).items_center().bg(t.chrome)
       .on_mouse_up("left", () => { this.pressed = null; })
-      .on_scroll_wheel(e => { if (Math.abs(e.delta.y) >= 1) run(e.delta.y > 0 ? "tab.prev" : "tab.next"); })
       .when(lightsPadding > 0, el => el.child(line(div().w(lightsPadding).h_full().flex_none())))
       .child(h_flex().id("tab-scroll").flex_1().min_w(0).h_full().overflow_x_scrollbar()
         .children(shown.map(item))
